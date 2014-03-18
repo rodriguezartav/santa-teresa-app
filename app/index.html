@@ -1,0 +1,53 @@
+<html> 
+  <head>
+
+    <link  rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />    
+
+
+<script src="//localhost:3000/chicas_poderosas/water/assets/parse.js"> </script>
+    
+  </head>
+
+  <body>
+
+  <div stlye="background-color: black; color: white;" class="responsiveCheckWrapper"><div data-device="phone" class="visible-xs responsiveCheck">Loading 3VOT Mobile</div>
+  <div data-device="tablet" class="visible-sm responsiveCheck">Loading 3VOT Tablet</div><div data-device="laptop" class="visible-md responsiveCheck"> Loading3VOT Laptop </div>
+  <div data-device="desktop" class="visible-lg responsiveCheck">Loading 3VOT TV/Desktop</div></div>
+  
+  <script id="loadarea" type="text/javascript"></script>
+  
+  <script>
+    var package = {"name":"water","description":"","version":"0.0.2","threevot":{"displayName":"water","size":"small","private":false,"privateCode":"","external":{},"entries":{"index":["desktop","laptop","phone","tablet"]},"extensions":[".coffee",".eco",".html"],"transforms":["browserify-eco","coffeeify","brfs"],"gitDependencies":{},"version":"2"},"dependencies":{"jqueryify":"2.0.3","spine":"1.2.2","3vot":"0.0.3","chroma-js":"~0.5.6","thenby":"0.0.1"}};
+    
+    var _3vot = {};
+    var entries = package.threevot.entries;
+
+    var responsiveDivs = document.getElementsByClassName("responsiveCheck");
+    
+    _3vot.device = "";
+    
+    for(var i=0; i<responsiveDivs.length; i++){ 
+      var style = getComputedStyle( responsiveDivs[i] ); 
+        if(style.display==="block"){ 
+          _3vot.device = responsiveDivs[i].dataset.device; 
+        }   
+      }
+
+      var fileToCall = '';
+      _3vot.domain = 'localhost:3000';
+      _3vot.path = '//' + _3vot.domain + '/chicas_poderosas/' + package.name;
+      
+      for(entryKey in entries){ 
+        var entryValue = entries[entryKey]; 
+        if(entryValue.indexOf(_3vot.device) > -1){ 
+          fileToCall = entryKey 
+          }
+        }
+        
+      document.getElementById('loadarea').src=  _3vot.path + '/' + fileToCall + '.js';
+      
+      console.log(fileToCall);
+    </script>
+    
+  </body> 
+</html>
