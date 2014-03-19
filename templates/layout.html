@@ -1,12 +1,13 @@
 <div ng-app="3votApp">
   <div class="container">
+    
     <div class="row">
-            <h1>All</h1>
-      <ul class="nav nav-pills nav-stacked col-md-2">
-        <li ng-class="{ active : currentRoute === 'main' }"><a href="#/main">Home</a></li>
-        <li ng-class="{ active : currentRoute === 'how' }"><a href="#/how">How i did it?</a></li>
-      </ul>
-      <div class="col-md-10 map-src" ng-view></div>
+      <div class="map-wrapper col-md-3 map-src" data-use="humano"></div>
+      <div class="map-wrapper col-md-3 map-src" data-use="turistico"></div>
+      <div class="map-wrapper col-md-3 map-src" data-use="agroganaderia"></div>
+      <div class="map-wrapper col-md-3 map-src" data-use="industrial"></div>
     </div>
+    
+
   </div>
 </div>

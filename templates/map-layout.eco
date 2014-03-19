@@ -1,24 +1,9 @@
-<div class="map-controls"">
-  
-  <div class="row">
-    
-    <div class=" col-md-10">
-      
-      <ul class="nav nav-pills">
-        <li><a href="#"><strong>Pronto:</strong> </a></li>
-      </ul>
-
-    </div>
-    
-    <div class="col-md-2">
-      <a data-type="in" class="btn btn-primary btn-zoom">+</a>
-      <a data-type="out" class="btn  btn-primary btn-zoom">-</a>
-    </div>
+<h3>Uso <%= @name %></h3>
+<div class="progress">
+  <div class="progress-bar" role="progressbar">
+    60%
   </div>
 </div>
 
-<div class="map-wrapper" style="height: 100%; width:100%; overflow: auto; ">
+<%- @assets.crMap %>
 
-  <%- @assets.crMap %>
-
-</div>
